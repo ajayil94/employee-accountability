@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\project\models\ProjectMasterSearch */
+/* @var $searchModel app\modules\designation\models\DesignationSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Project Masters';
+$this->title = 'Designations';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="project-master-index">
+<div class="designation-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Project Master', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Designation', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -26,10 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'project_name',
+            'designation:ntext',
             'description:ntext',
-            'created_at:ntext',
-            'modified_at:ntext',
+            'created_at',
+            'modified_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

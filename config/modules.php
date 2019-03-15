@@ -11,10 +11,18 @@ return [
         'class' => 'app\modules\employee\Employee',
     ],
     'project' => [
-        'class' => 'app\modules\project\Project',
+       'class' => 'app\modules\project\Project',
     ],
     
     'timesheet' => [
         'class' => 'app\modules\timesheet\Timesheet',
     ],
+    'designation' => [
+        'class' => 'app\modules\designation\Designation',
+    ],
+    
+    'mapping' => [
+            'class' => 'app\modules\mapping\Mapping',
+        ],
+    
 ];

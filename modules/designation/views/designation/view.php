@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\project\models\ProjectMaster */
+/* @var $model app\modules\designation\models\Designation */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Project Masters', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Designations', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="project-master-view">
+<div class="designation-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,10 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'project_name',
+            'designation:ntext',
             'description:ntext',
-//            'created at:ntext',
-//            'modified at:ntext',
+            'created_at',
+            'modified_at',
         ],
     ]) ?>
 
