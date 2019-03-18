@@ -18,7 +18,7 @@ class MappingSearch extends Mapping
     {
         return [
             [['id'], 'integer'],
-            [['project_id', 'emp_id', 'created_at', 'modified_at'], 'safe'],
+            [['project_id', 'emp_id'], 'safe'],
         ];
     }
 
@@ -59,8 +59,7 @@ class MappingSearch extends Mapping
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'created_at' => $this->created_at,
-            'modified_at' => $this->modified_at,
+            
         ]);
 
         $query->andFilterWhere(['like', 'project_id', $this->project_id])

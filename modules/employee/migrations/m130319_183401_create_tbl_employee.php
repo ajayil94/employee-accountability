@@ -16,7 +16,9 @@ class m130319_183401_create_tbl_employee extends \yii\db\Migration {
             'last_name' => $this->text(20)->notNull(),
             'age' => $this->integer(2)->notNull(),
             'gender' => "ENUM('Male', 'Female', 'Others') NOT NULL",
-            'designation' => $this->text(20)->notNull(),
+            'designation' => $this->dropDownlist(20)->notNull(),
+//            'created_at' => $this->time(6)->notNull(),
+//            'modified_at' => $this->time(6)->notNull(),
         ];
         $this->createTable('tbl_employee', $columns);
     }

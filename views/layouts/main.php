@@ -42,7 +42,7 @@ AppAsset::register($this);
                     ['label' => 'Projects', 'url' => \yii\helpers\Url::to(['/project/project-master/index'])],
                     ['label' => 'Timesheet', 'url' => \yii\helpers\Url::to(['/timesheet/timesheet-master/index'])],
                     ['label' => 'Designation', 'url' => \yii\helpers\Url::to(['/designation/designation/index'])],
-                    // ['label' => 'Project Details', 'url' => \yii\helpers\Url::to(['/projectdetails/projectdetails/index'])],
+                   ['label' => 'Mapping', 'url' => \yii\helpers\Url::to(['/mapping/mapping/index'])],
 //            ['label' => 'Contact', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ? (
                             ['label' => 'Login', 'url' => ['/site/login']]

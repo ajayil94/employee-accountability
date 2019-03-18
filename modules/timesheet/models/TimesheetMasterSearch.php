@@ -17,8 +17,8 @@ class TimesheetMasterSearch extends TimesheetMaster
     public function rules()
     {
         return [
-            [['id', 'emp_id'], 'integer'],
-            [['project_name', 'description', 'duration'], 'safe'],
+            [['id'], 'integer'],
+            [['emp_name','project_name', 'description', 'duration'], 'safe'],
         ];
     }
 
@@ -59,7 +59,7 @@ class TimesheetMasterSearch extends TimesheetMaster
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'emp_id' => $this->emp_id,
+          'emp_name' => $this->emp_name,
         ]);
 
         $query->andFilterWhere(['like', 'project_name', $this->project_name])

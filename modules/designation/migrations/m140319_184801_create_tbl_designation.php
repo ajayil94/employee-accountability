@@ -13,8 +13,8 @@ class m140319_184801_create_tbl_designation extends \yii\db\Migration {
             'id' => 'pk',
             'designation' => $this->text(20)->notNull(),
             'description' => $this->text(20),            
-            'created_at' => $this->time(6)->notNull(),
-            'modified_at' => $this->time(6)->notNull(),
+            'created_at' => $this->CURRENT_TIMESTAMP(6)->notNull(),
+            'modified_at' => $this->CURRENT_TIMESTAMP(6)->notNull(),
             
         ];
         $this->createTable('tbl_designation', $columns);

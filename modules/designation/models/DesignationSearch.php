@@ -18,7 +18,7 @@ class DesignationSearch extends Designation
     {
         return [
             [['id'], 'integer'],
-            [['designation', 'description', 'created_at', 'modified_at'], 'safe'],
+            [['designation', 'description'], 'safe'],
         ];
     }
 
@@ -59,8 +59,7 @@ class DesignationSearch extends Designation
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'created_at' => $this->created_at,
-            'modified_at' => $this->modified_at,
+
         ]);
 
         $query->andFilterWhere(['like', 'designation', $this->designation])

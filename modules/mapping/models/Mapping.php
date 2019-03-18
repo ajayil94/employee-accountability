@@ -29,9 +29,9 @@ class Mapping extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['project_id', 'created_at', 'modified_at'], 'required'],
+            [['project_id'], 'required'],
             [['project_id', 'emp_id'], 'string'],
-            [['created_at', 'modified_at'], 'safe'],
+            
         ];
     }
 
@@ -42,10 +42,9 @@ class Mapping extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'project_id' => 'Project ID',
-            'emp_id' => 'Emp ID',
-            'created_at' => 'Created At',
-            'modified_at' => 'Modified At',
+            'project_id' => 'Project Name',
+            'emp_id' => 'Emp Name',
+            
         ];
     }
 }

@@ -29,7 +29,7 @@ class TimesheetMaster extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['emp_id'], 'integer'],
+            [['emp_name'], 'required'],
             [['project_name'], 'required'],
             [['description', 'duration'], 'string'],
             [['project_name'], 'string', 'max' => 20],

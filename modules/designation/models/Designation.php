@@ -10,8 +10,7 @@ use Yii;
  * @property int $id
  * @property string $designation
  * @property string $description
- * @property string $created_at
- * @property string $modified_at
+ 
  */
 class Designation extends \yii\db\ActiveRecord
 {
@@ -29,9 +28,9 @@ class Designation extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['designation', 'created_at', 'modified_at'], 'required'],
+            [['designation'], 'required'],
             [['designation', 'description'], 'string'],
-            [['created_at', 'modified_at'], 'safe'],
+            
         ];
     }
 
@@ -44,8 +43,12 @@ class Designation extends \yii\db\ActiveRecord
             'id' => 'ID',
             'designation' => 'Designation',
             'description' => 'Description',
-            'created_at' => 'Created At',
-            'modified_at' => 'Modified At',
+//            'created_at' => 'Create at',
+//            'modified_at' => 'Modified at',
+            
+//            
         ];
     }
+    
+
 }
