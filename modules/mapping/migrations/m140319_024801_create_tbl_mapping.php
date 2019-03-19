@@ -11,9 +11,10 @@ class m140319_024801_create_tbl_mapping extends \yii\db\Migration {
     public function up() {
         $columns = [
             'id' => 'pk',
-            'project_id' => $this->integer(20)->notNull(),
-            'emp_id' => $this->text(20),            
-            
+            'project_name' => $this->text(20)->notNull(),
+            'emp_name' => $this->text(20),            
+            'created_at' => $this->CURRENT_TIMESTAMP(6)->notNull(),
+            'modified_at' => $this->CURRENT_TIMESTAMP(6)->notNull(),
             
         ];
         $this->createTable('tbl_mapping', $columns);

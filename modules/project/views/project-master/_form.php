@@ -16,6 +16,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
     
+    <?= $form->field($model, 'project_type')->dropDownList(['Fixed Rate' => 'Fixed Rate', 'Time and Material' => 'Time and Material',], ['prompt' => 'Select Type']) ?>
+    
+    <?= $form->field($model, 'billing_hours')->textInput(['rows' => 6]) ?>
+    
+    <?= $form->field($model, 'remaining_hours')->textInput(['rows' => 6]) ?>
     
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

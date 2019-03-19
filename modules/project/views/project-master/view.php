@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\modules\project\models\ProjectMaster */
 
-$this->title = $model->id;
+$this->title = $model->project_name;
 $this->params['breadcrumbs'][] = ['label' => 'Project Masters', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -32,8 +32,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'project_name',
             'description:ntext',
-//            'created at:ntext',
-//            'modified at:ntext',
+            'project_type',
+            'billing_hours',
+            'remaining_hours',
+            'created_at',
+            'modified_at',
         ],
     ]) ?>
 

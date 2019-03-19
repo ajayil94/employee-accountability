@@ -20,6 +20,12 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'project_name') ?>
 
     <?= $form->field($model, 'description') ?>
+    
+    <?= $form->field($model, 'project_type') ?>
+    
+    <?= $form->field($model, 'billing_hours') ?>
+    
+    <?= $form->field($model, 'remaining_hours') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

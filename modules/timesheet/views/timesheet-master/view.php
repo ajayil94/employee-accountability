@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\modules\timesheet\models\TimesheetMaster */
 
-$this->title = $model->id;
+$this->title = $model->emp_name;
 $this->params['breadcrumbs'][] = ['label' => 'Timesheet Masters', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -34,6 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'project_name',
             'description:ntext',
             'duration:ntext',
+            'created_at',
+            'modified_at',
         ],
     ]) ?>
 

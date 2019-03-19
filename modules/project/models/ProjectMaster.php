@@ -30,6 +30,9 @@ class ProjectMaster extends \yii\db\ActiveRecord
             [['project_name'], 'required'],
             [['description'], 'string'],
             [['project_name'], 'string', 'max' => 20],
+            [['project_type'], 'string', 'max' => 20],
+            [['billing_hours'], 'integer', 'max' => 20],
+            [['remaining_hours'], 'integer', 'max' => 20],
         ];
     }
 
@@ -42,6 +45,9 @@ class ProjectMaster extends \yii\db\ActiveRecord
             'id' => 'ID',
             'project_name' => 'Project Name',
             'description' => 'Description',
+            'project_type'=>'Project Type',
+            'billing_hours'=>'Billing Hours',
+            'remaining_hours'=>'Remaining Hours',
         ];
     }
 }

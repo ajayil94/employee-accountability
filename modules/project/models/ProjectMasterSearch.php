@@ -17,8 +17,8 @@ class ProjectMasterSearch extends ProjectMaster
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['project_name', 'description'], 'safe'],
+            [['id','billing_hours','remaining_hours'],'integer'],
+            [['project_name', 'description','project_type'], 'safe'],
         ];
     }
 
@@ -62,7 +62,10 @@ class ProjectMasterSearch extends ProjectMaster
         ]);
 
         $query->andFilterWhere(['like', 'project_name', $this->project_name])
-            ->andFilterWhere(['like', 'description', $this->description]);
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'project_type', $this->project_type])
+            ->andFilterWhere(['like', 'billing_hours', $this->billing_hours])
+            ->andFilterWhere(['like', 'remaining_hours', $this->remaining_hours]);
 
         return $dataProvider;
     }

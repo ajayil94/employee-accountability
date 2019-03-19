@@ -8,6 +8,7 @@ use app\modules\employee\models\EmployeeMasterSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * EmployeeMasterController implements the CRUD actions for EmployeeMaster model.
@@ -63,6 +64,12 @@ class EmployeeMasterController extends Controller {
         $model = new EmployeeMaster();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
+            $model->file = \yii\web\UploadedFile::getInstance($model,'file');
+            $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);
+            
+            $model->profile_image = 'uploads/'.$imageName.'.'.$model->file->extension;
+            
             return $this->redirect(['index']);
         }
 

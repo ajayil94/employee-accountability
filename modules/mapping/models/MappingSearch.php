@@ -18,7 +18,7 @@ class MappingSearch extends Mapping
     {
         return [
             [['id'], 'integer'],
-            [['project_id', 'emp_id'], 'safe'],
+            [['project_name', 'emp_name'], 'safe'],
         ];
     }
 
@@ -62,8 +62,8 @@ class MappingSearch extends Mapping
             
         ]);
 
-        $query->andFilterWhere(['like', 'project_id', $this->project_id])
-            ->andFilterWhere(['like', 'emp_id', $this->emp_id]);
+        $query->andFilterWhere(['like', 'project_name', $this->project_name])
+            ->andFilterWhere(['like', 'emp_name', $this->emp_name]);
 
         return $dataProvider;
     }

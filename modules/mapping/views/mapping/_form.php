@@ -16,8 +16,8 @@ use app\modules\employee\models\EmployeeMaster;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'project_id')->dropDownList(
-            ArrayHelper::map(ProjectMaster::find()->all(),'id','project_name'),
+    <?= $form->field($model, 'project_name')->dropDownList(
+            ArrayHelper::map(ProjectMaster::find()->all(),'project_name','project_name'),
     [
         'prompt'=>'Select Project',
 //        'onchange'=>'$.post(.index.php?r=mapping'
@@ -25,9 +25,9 @@ use app\modules\employee\models\EmployeeMaster;
     ]);
          ?> 
 
-    <?= $form->field($model, 'emp_id')->dropDownList(
+    <?= $form->field($model, 'emp_name')->dropDownList(
             
-             ArrayHelper::map(app\modules\employee\models\EmployeeMaster::find()->all(),'id','first_name'),
+             ArrayHelper::map(app\modules\employee\models\EmployeeMaster::find()->all(),'first_name','first_name'),
             ['prompt'=>'Select Employee',]); ?>
 
     
