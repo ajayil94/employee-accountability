@@ -2,10 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use yii\helpers\ArrayHelper;
-use app\modules\project\models\ProjectMaster;
-use app\modules\employee\models\EmployeeMaster;
-
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\mapping\models\Mapping */
@@ -16,21 +12,13 @@ use app\modules\employee\models\EmployeeMaster;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'project_name')->dropDownList(
-            ArrayHelper::map(ProjectMaster::find()->all(),'project_name','project_name'),
-    [
-        'prompt'=>'Select Project',
-//        'onchange'=>'$.post(.index.php?r=mapping'
- 
-    ]);
-         ?> 
+    <?= $form->field($model, 'project_id')->textInput() ?>
 
-    <?= $form->field($model, 'emp_name')->dropDownList(
-            
-             ArrayHelper::map(app\modules\employee\models\EmployeeMaster::find()->all(),'first_name','first_name'),
-            ['prompt'=>'Select Employee',]); ?>
+    <?= $form->field($model, 'employee_id')->textInput() ?>
 
-    
+    <?= $form->field($model, 'created_at')->textInput() ?>
+
+    <?= $form->field($model, 'modified_at')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

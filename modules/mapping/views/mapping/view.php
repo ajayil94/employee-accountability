@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\modules\mapping\models\Mapping */
 
-$this->title = $model->emp_name;
+$this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Mappings', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -30,11 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'project_name:ntext',
-            'emp_name:ntext',
+            'project_id',
+            'employee_id',
             'created_at',
             'modified_at',
-            
         ],
     ]) ?>
 

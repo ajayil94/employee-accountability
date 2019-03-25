@@ -2,7 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use yii;
+use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\employee\models\EmployeeMasterSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -34,6 +35,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'designation:ntext',
             'created_at',
             'modified_at',
+//            'profile_image:image',
+//            [
+//                'label'=>'Profile Image',
+//                'attribute'=>'profile_image',
+//                'format'=>'html',
+//                'value'=> function($model){
+//        
+//        return yii\bootstrap\Html::img($model->profile_image,['width'=>'150']);
+//                }
+//                
+//            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

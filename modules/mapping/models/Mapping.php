@@ -9,7 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property string $project_id
- * @property string $emp_id
+ * @property string $employee_id
  * @property string $created_at
  * @property string $modified_at
  */
@@ -29,9 +29,9 @@ class Mapping extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['project_name'], 'required'],
-            [['project_name', 'emp_name'], 'string'],
-            
+            [['project_id', 'employee_id'], 'required'],
+            [['project_id', 'employee_id'], 'string'],
+            [['created_at', 'modified_at'], 'safe'],
         ];
     }
 
@@ -42,9 +42,10 @@ class Mapping extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'project_name' => 'Project Name',
-            'emp_name' => 'Emp Name',
-            
+            'project_id' => 'Project Name',
+            'employee_id' => 'Employee Name',
+            'created_at' => 'Created At',
+            'modified_at' => 'Modified At',
         ];
     }
 }

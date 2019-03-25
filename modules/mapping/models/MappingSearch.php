@@ -17,8 +17,8 @@ class MappingSearch extends Mapping
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['project_name', 'emp_name'], 'safe'],
+            [['id', 'project_id', 'employee_id'], 'integer'],
+            [['created_at', 'modified_at'], 'safe'],
         ];
     }
 
@@ -59,11 +59,11 @@ class MappingSearch extends Mapping
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            
+            'project_id' => $this->project_id,
+            'employee_id' => $this->employee_id,
+            'created_at' => $this->created_at,
+            'modified_at' => $this->modified_at,
         ]);
-
-        $query->andFilterWhere(['like', 'project_name', $this->project_name])
-            ->andFilterWhere(['like', 'emp_name', $this->emp_name]);
 
         return $dataProvider;
     }

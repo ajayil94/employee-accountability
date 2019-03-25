@@ -65,12 +65,19 @@ class EmployeeMasterController extends Controller {
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             
-            $model->file = \yii\web\UploadedFile::getInstance($model,'file');
-            $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);
+            $model->profile_image = UploadedFile::getInstance($model, 'profile_image');
             
-            $model->profile_image = 'uploads/'.$imageName.'.'.$model->file->extension;
+            $imageName = $model->first_name.rand(1, 4000).'.'.$model->profile_image->extension;
             
-            return $this->redirect(['index']);
+            $image_path = 'uploads/emp/'.$imageName;
+            
+            $model->profile_image->saveAs($image_path);
+            
+            $model->profile_image = $image_path;
+           
+            $model->save();
+            
+                    return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -87,8 +94,16 @@ class EmployeeMasterController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
+$oldImage = $model->profile_image;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
+            $image = UploadedFile::getInstance($model, 'profile_image');
+    if(isset($image)){
+        $model->d_img_path=  $model->d_nic.'.'.$image->extension;
+    } else {
+        $model->d_img_path = $oldImage;
+    }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

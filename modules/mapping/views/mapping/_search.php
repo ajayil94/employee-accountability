@@ -17,11 +17,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'project_name') ?>
+    <?= $form->field($model, 'project_id') ?>
 
-    <?= $form->field($model, 'emp_name') ?>
+    <?= $form->field($model, 'employee_id') ?>
 
-    
+    <?= $form->field($model, 'created_at') ?>
+
+    <?= $form->field($model, 'modified_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

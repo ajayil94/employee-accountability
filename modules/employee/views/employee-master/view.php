@@ -36,8 +36,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'age',
             'gender',
             'designation:ntext',
+            
             'created_at',
             'modified_at',
+//            'profile_image:image',
+            
+            [
+                'label'=>'Profile Image',
+                'attribute'=>'profile_image',
+                'format'=>'html',
+                'value'=> function($model){
+        
+        return yii\bootstrap\Html::img($model->profile_image,['width'=>'150']);
+                }
+                
+            ],
         ],
     ]) ?>
 

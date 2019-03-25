@@ -21,7 +21,7 @@ class EmployeeMaster extends \yii\db\ActiveRecord {
      * {@inheritdoc}
      */
     
-    public $file; 
+   // public $file; 
             
     public static function tableName() {
         return 'tbl_employee';
@@ -33,8 +33,8 @@ class EmployeeMaster extends \yii\db\ActiveRecord {
     public function rules() {
         return [
             [['first_name', 'last_name', 'age', 'gender', 'designation'], 'required'],
-            [['file'],'file'],
-            [['first_name', 'middle_name', 'last_name', 'gender', 'designation','profile_image'], 'string'],
+            [['profile_image'],'file','extensions'=>'jpeg,jpg,png,gif'],
+            [['first_name', 'middle_name', 'last_name', 'gender', 'designation'], 'string'],
             [['age'], 'integer'],
         ];
     }
@@ -51,7 +51,7 @@ class EmployeeMaster extends \yii\db\ActiveRecord {
             'age' => 'Age',
             'gender' => 'Gender',
             'designation' => 'Designation',
-            'file'=>'Profile Image'
+            'profile_image'=>'Profile Image'
             
         ];
     }
