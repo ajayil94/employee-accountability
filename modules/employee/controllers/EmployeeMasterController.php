@@ -61,23 +61,24 @@ class EmployeeMasterController extends Controller {
      * @return mixed
      */
     public function actionCreate() {
+        
         $model = new EmployeeMaster();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            
+
             $model->profile_image = UploadedFile::getInstance($model, 'profile_image');
-            
-            $imageName = $model->first_name.rand(1, 4000).'.'.$model->profile_image->extension;
-            
-            $image_path = 'uploads/emp/'.$imageName;
-            
+
+            $imageName = $model->first_name . rand(1, 4000) . '.' . $model->profile_image->extension;
+
+            $image_path = 'uploads/emp/' . $imageName;
+
             $model->profile_image->saveAs($image_path);
-            
+
             $model->profile_image = $image_path;
-           
+
             $model->save();
-            
-                    return $this->redirect(['index']);
+
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -93,17 +94,31 @@ class EmployeeMasterController extends Controller {
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id) {
-        $model = $this->findModel($id);
-$oldImage = $model->profile_image;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            
-            $image = UploadedFile::getInstance($model, 'profile_image');
-    if(isset($image)){
-        $model->d_img_path=  $model->d_nic.'.'.$image->extension;
-    } else {
-        $model->d_img_path = $oldImage;
-    }
+        $model = $this->findModel($id);
+
+        $oldImage = $model->profile_image;
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            $imagefile = UploadedFile::getInstance($model, 'profile_image');
+//            echo "$imagefile"; die;
+            if ($imagefile) {
+                unlink(Yii::getAlias('@app') . '/../../uploads/emp/' . $oldImage);
+
+                $fileName = $model->first_name . rand(1, 4000) . '.' . $imagefile->extension;
+                $imagefile->saveAs(Yii::getAlias('@app') . '/../../uploads/emp/' . $fileName);
+
+                $model->profile_image = $fileName;
+                $model->save();
+            } 
+            else
+                {
+                
+                $model->profile_image = $oldImage;
+                $model->save(false);
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

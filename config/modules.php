@@ -24,5 +24,14 @@ return [
     'mapping' => [
             'class' => 'app\modules\mapping\Mapping',
         ],
+    'users' => [
+            'class' => 'app\modules\users\Users',
+        ],
+    'role' => [
+            'class' => 'app\modules\role\Role',
+        ],
+    'permission' => [
+            'class' => 'app\modules\permission\Permission',
+        ],
     
 ];

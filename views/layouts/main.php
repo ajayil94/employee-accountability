@@ -43,6 +43,9 @@ AppAsset::register($this);
                     ['label' => 'Timesheet', 'url' => \yii\helpers\Url::to(['/timesheet/timesheet-master/index'])],
                     ['label' => 'Designation', 'url' => \yii\helpers\Url::to(['/designation/designation/index'])],
                    ['label' => 'Mapping', 'url' => \yii\helpers\Url::to(['/mapping/mapping/index'])],
+                   ['label' => 'Users', 'url' => \yii\helpers\Url::to(['/users/users/index'])],
+                   ['label' => 'Role', 'url' => \yii\helpers\Url::to(['/role/role/index'])],
+                   ['label' => 'Permission', 'url' => \yii\helpers\Url::to(['/permission/permission/index'])],
 //            ['label' => 'Contact', 'url' => ['/site/contact']],
                     Yii::$app->user->isGuest ? (
                             ['label' => 'Login', 'url' => ['/site/login']]
