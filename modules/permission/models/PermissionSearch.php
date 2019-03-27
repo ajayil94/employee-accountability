@@ -18,7 +18,7 @@ class PermissionSearch extends Permission
     {
         return [
             [['id'], 'integer'],
-            [['module_id', 'role_id'], 'safe'],
+            [['module_id', 'role_id', 'created_at', 'modified_at'], 'safe'],
         ];
     }
 
@@ -59,6 +59,8 @@ class PermissionSearch extends Permission
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'created_at' => $this->created_at,
+            'modified_at' => $this->modified_at,
         ]);
 
         $query->andFilterWhere(['like', 'module_id', $this->module_id])

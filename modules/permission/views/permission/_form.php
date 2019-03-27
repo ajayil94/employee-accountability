@@ -12,9 +12,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'module_id')->textInput(['rows' => 6]) ?>
+    <?= $form->field($model, 'module_id')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'role_id')->textInput(['rows' => 6]) ?>
+    <?= $form->field($model, 'role_id')->textarea(['rows' => 6]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

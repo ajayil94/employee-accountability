@@ -97,36 +97,38 @@ class EmployeeMasterController extends Controller {
 
         $model = $this->findModel($id);
 
-        $oldImage = $model->profile_image;
+       $oldImage = $model->profile_image;
 
         if ($model->load(Yii::$app->request->post())) {
 
-            $imagefile = UploadedFile::getInstance($model, 'profile_image');
-//            echo "$imagefile"; die;
-            if ($imagefile) {
-                unlink(Yii::getAlias('@app') . '/../../uploads/emp/' . $oldImage);
+            $imageFile = UploadedFile::getInstance($model, 'profile_image');
 
-                $fileName = $model->first_name . rand(1, 4000) . '.' . $imagefile->extension;
-                $imagefile->saveAs(Yii::getAlias('@app') . '/../../uploads/emp/' . $fileName);
+            if ($imageFile) {
+                
+                unlink($oldImage);
+                
+                  $fileName = $imageFile->baseName.'_'.time().'.'.$imageFile->extension;
+            $imageFile->saveAs('uploads/emp/' . $fileName);
 
-                $model->profile_image = $fileName;
-                $model->save();
+            $model->profile_image = $fileName;
+            $model->save();
             } 
             else
                 {
                 
                 $model->profile_image = $oldImage;
+                
                 $model->save(false);
             }
 
             return $this->redirect(['view', 'id' => $model->id]);
-        }
+    }
 
         return $this->render('update', [
                     'model' => $model,
         ]);
+    
     }
-
     /**
      * Deletes an existing EmployeeMaster model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
