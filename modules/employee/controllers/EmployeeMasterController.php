@@ -94,41 +94,45 @@ class EmployeeMasterController extends Controller {
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id) {
-
+        
         $model = $this->findModel($id);
-
-       $oldImage = $model->profile_image;
-
+        
+        $current_image = $model->profile_image;
+        
         if ($model->load(Yii::$app->request->post())) {
+            
+            $project = $model->first_name;
+            
+            $model->profile_image = UploadedFile::getInstance($model, 'profile_image');
 
-            $imageFile = UploadedFile::getInstance($model, 'profile_image');
 
-            if ($imageFile) {
+            if (!empty($model->profile_image) && $model->profile_image->size !== 0) {
                 
-                unlink($oldImage);
                 
-                  $fileName = $imageFile->baseName.'_'.time().'.'.$imageFile->extension;
-            $imageFile->saveAs('uploads/emp/' . $fileName);
-
-            $model->profile_image = $fileName;
-            $model->save();
+                $model->profile_image->saveAs('uploads/emp/' . $project . '.' . $model->profile_image->extension);
+                
+                $model->profile_image = 'uploads/emp/' . $project . '.' . $model->profile_image->extension;
+                
             } 
+            
             else
-                {
                 
-                $model->profile_image = $oldImage;
-                
-                $model->save(false);
-            }
-
+                $model->profile_image = $current_image;
+            
+                $model->save();
+            
+            Yii::$app->getSession()->setFlash('success', 'Data updated Successfully!');
+            
             return $this->redirect(['view', 'id' => $model->id]);
+            
+        } else
+            {
+            return $this->render('update', [
+                        'model' => $model,
+            ]);
+        }
     }
 
-        return $this->render('update', [
-                    'model' => $model,
-        ]);
-    
-    }
     /**
      * Deletes an existing EmployeeMaster model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
