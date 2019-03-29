@@ -8,8 +8,8 @@ use Yii;
  * This is the model class for table "tbl_mapping".
  *
  * @property int $id
- * @property string $project_id
- * @property string $employee_id
+ * @property int $project_id
+ * @property int $employee_id
  * @property string $created_at
  * @property string $modified_at
  */
@@ -30,7 +30,7 @@ class Mapping extends \yii\db\ActiveRecord
     {
         return [
             [['project_id', 'employee_id'], 'required'],
-            [['project_id', 'employee_id'], 'string'],
+            [['project_id', 'employee_id'], 'integer'],
             [['created_at', 'modified_at'], 'safe'],
         ];
     }
@@ -42,8 +42,8 @@ class Mapping extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'project_id' => 'Project Name',
-            'employee_id' => 'Employee Name',
+            'project_id' => 'Project ID',
+            'employee_id' => 'Employee ID',
             'created_at' => 'Created At',
             'modified_at' => 'Modified At',
         ];

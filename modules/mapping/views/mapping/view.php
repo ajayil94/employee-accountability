@@ -30,8 +30,26 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'project_id',
-            'employee_id',
+//            'project_id',
+            [
+        'label'=>'Project Name',
+        'attribute'=>'project_id',
+        'value'=>function($model){
+        
+        $project= app\modules\project\models\ProjectMaster::find()->where(['id'=>$model->project_id])->one();
+        return $project->project_name;
+        }
+    ],
+//            'employee_id',
+            [
+        'label'=>'Employee Name',
+        'attribute'=>'employee_id',
+        'value'=>function($model){
+        
+        $employee= app\modules\employee\models\EmployeeMaster::find()->where(['id'=>$model->employee_id])->one();
+        return $employee->first_name;
+        }
+    ],
             'created_at',
             'modified_at',
         ],

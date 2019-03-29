@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'last_name:ntext',
             'age',
             'gender',
-            'designation:ntext',
+            'designation',
             'created_at',
             'modified_at',
 //            'profile_image:image',
