@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\modules\project\models\ProjectMaster;
+use app\modules\employee\models\EmployeeMaster;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\mapping\models\Mapping */

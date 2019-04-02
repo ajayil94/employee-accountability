@@ -61,7 +61,7 @@ class EmployeeMasterController extends Controller {
      * @return mixed
      */
     public function actionCreate() {
-        
+
         $model = new EmployeeMaster();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -94,39 +94,33 @@ class EmployeeMasterController extends Controller {
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id) {
-        
+$model = new EmployeeMaster();
         $model = $this->findModel($id);
-        
+
         $current_image = $model->profile_image;
-        
+
         if ($model->load(Yii::$app->request->post())) {
-            
+
             $project = $model->first_name;
-            
+
             $model->profile_image = UploadedFile::getInstance($model, 'profile_image');
 
 
             if (!empty($model->profile_image) && $model->profile_image->size !== 0) {
-                
-                
+
+
                 $model->profile_image->saveAs('uploads/emp/' . $project . '.' . $model->profile_image->extension);
-                
+
                 $model->profile_image = 'uploads/emp/' . $project . '.' . $model->profile_image->extension;
-                
-            } 
-            
-            else
-                
+            } else
                 $model->profile_image = $current_image;
-            
-                $model->save();
-            
+
+            $model->save();
+
             Yii::$app->getSession()->setFlash('success', 'Data updated Successfully!');
-            
+
             return $this->redirect(['view', 'id' => $model->id]);
-            
-        } else
-            {
+        } else {
             return $this->render('update', [
                         'model' => $model,
             ]);

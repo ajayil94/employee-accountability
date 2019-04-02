@@ -1,57 +1,169 @@
-<?php
+
+
+    <?php
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\models\Employee;
+use yii\jui\Tabs;
+
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\employee\models\EmployeeMaster */
-
+/* @var $model app\models\Employee */
+echo Html::a('<span class="glyphicon glyphicon-list"></span> List', ['index'], ['class' => 'btn btn-primary']);
 $this->title = $model->first_name;
-$this->params['breadcrumbs'][] = ['label' => 'Employee Masters', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Employees', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
 ?>
-<div class="employee-master-view">
+<p>
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+<?php $this->beginBlock('personal'); ?>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'first_name:ntext',
-            'middle_name:ntext',
-            'last_name:ntext',
-            'age',
-            'gender',
-            'designation:ntext',
-            
-            'created_at',
-            'modified_at',
-//            'profile_image:image',
-            
+
+
+<div class="row">
+<div class="col-sm-8">
+<b><?= (Html::img('@web/uploads/'.$model->profile_image, ['width'=>'100', 'height'=>'100'])) ?>&nbsp;&nbsp;&nbsp;</b>
+
+
+</div>
+</div>
+
+<br>
+<div class="row">
+<div class="col-sm-3">
+<b>Employee</b>
+</div>
+<div class="col-sm-3">
+<b>
+   	<?php
+
+		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
+
+		echo Html::encode($emp->first_name)." ".Html::encode($emp->middle_name)." ".Html::encode($emp->last_name);
+		?>
+	</b>
+</div>
+</div>
+
+
+<br>
+
+<div class="row">
+<div class="col-sm-3">
+<b>	gender</b>
+</div>
+<div class="col-sm-3">
+<b>
+   	<?php
+
+		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
+
+		echo $emp->gender;
+		?>
+	</b>
+</div>
+</div>
+
+
+<br>
+
+<div class="row">
+<div class="col-sm-3">
+<b>	Designation</b>
+</div>
+<div class="col-sm-3">
+<b>
+   	<?php
+
+		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
+
+		echo $emp->designation;
+		?>
+	</b>
+</div>
+</div>
+
+
+<br>
+
+<div class="row">
+<div class="col-sm-3">
+<b>	Age</b>
+</div>
+<div class="col-sm-3">
+<b>
+   	<?php
+
+		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
+
+		echo $emp->age;
+		?>
+	</b>
+</div>
+</div>
+
+
+
+
+
+
+
+<?php $this->endBlock(); ?> 
+
+
+
+
+
+
+
+
+ 
+
+
+<?php echo Tabs::Widget([
+        'items' => [
             [
-                'label'=>'Profile Image',
-                'attribute'=>'profile_image',
-                'format'=>'html',
-                'value'=> function($model){
-        
-        return yii\bootstrap\Html::img($model->profile_image,['width'=>'150']);
-                }
-                
+                'label' => 'Personal',
+                'content' => $this->blocks['personal'],
+                'active' => true,
             ],
-        ],
-    ]) ?>
-
+//			[
+//                'label' => 'Contact',
+//                'content' => $this->blocks['contact'],
+//            ],
+//            [
+//                'label' => 'Education',
+//                'content' => $this->blocks['education'],
+//            ],
+//			[
+//                'label' => 'Work Experience',
+//                'content' => $this->blocks['workexprience'],
+//            ],
+//			[
+//                'label' => 'Dependents',
+//                'content' => $this->blocks['dependents'],
+//            ],
+//            [
+//                'label' => 'Job',
+//                'content' => $this->blocks['job'],
+//            ],
+//			 [
+//                'label' => 'Bank',
+//                'content' => $this->blocks['bank'],
+//            ],
+//			[
+//                'label' => 'Training',
+//                'content' => $this->blocks['training'],
+//            ],
+			
+            
+        ]
+    ]); 
+	
+	
+	?>
+    
+    
 </div>

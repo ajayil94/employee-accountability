@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\modules\project\models\ProjectMaster;
+use app\modules\employee\models\EmployeeMaster;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\mapping\models\MappingSearch */
@@ -36,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
         return $project->project_name;
         }
     ],
-//            'employee_id',
+//          'employee_id',
             [
         'label'=>'Employee Name',
         'attribute'=>'employee_id',

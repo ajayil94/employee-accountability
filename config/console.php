@@ -21,6 +21,7 @@ $config = [
         
         'authManager' => [
 'class' => 'yii\rbac\DbManager',
+ 'defaultRoles' => ['guest'],           
 ],
         'log' => [
             'targets' => [

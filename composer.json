@@ -1,5 +1,5 @@
 {
-    "name": "yiisoft/yii2-app-basic",
+    "name": "yiisoft/yii2-jui",
     "description": "Yii 2 Basic Project Template",
     "keywords": ["yii2", "framework", "basic", "project template"],
     "homepage": "http://www.yiiframework.com/",
@@ -14,11 +14,16 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "php": ">=5.4.0",
-        "yiisoft/yii2": "~2.0.14",
-        "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0"
-    },
+    "php": ">=5.4.0",
+    "yiisoft/yii2": "*",
+    "yiisoft/yii2-bootstrap": "*",
+    "yiisoft/yii2-swiftmailer": "*",
+    "yiisoft/yii2-gii": "*",
+    "yiisoft/yii2-jui": "*",
+    "costa-rico/yii2-images": "dev-master",
+    "2amigos/yii2-file-input-widget":"~1.0",
+    "zxbodya/yii2-gallery-manager": "*@dev"
+},
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
         "yiisoft/yii2-gii": "~2.0.0",
@@ -28,6 +33,7 @@
         "codeception/verify": "~0.4.0",
         "codeception/specify": "~0.4.6"
     },
+    
     "config": {
         "process-timeout": 1800,
         "fxp-asset": {
