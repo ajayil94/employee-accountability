@@ -32,9 +32,9 @@ class EmployeeMaster extends \yii\db\ActiveRecord {
      */
     public function rules() {
         return [
-            [['first_name', 'last_name', 'age', 'gender', 'designation'], 'required'],
+            [['first_name', 'last_name', 'age', 'gender', 'designation','contact','education','email'], 'required'],
             [['profile_image'],'file','extensions'=>'jpeg,jpg,png,gif'],
-            [['first_name', 'middle_name', 'last_name', 'gender', 'designation'], 'string'],
+            [['first_name', 'middle_name', 'last_name', 'gender', 'designation','contact','education','email'], 'string'],
             [['age'], 'integer'],
         ];
     }
@@ -51,6 +51,7 @@ class EmployeeMaster extends \yii\db\ActiveRecord {
             'age' => 'Age',
             'gender' => 'Gender',
             'designation' => 'Designation',
+            'email'=>'Email',
             'profile_image'=>'Profile Image'
             
         ];

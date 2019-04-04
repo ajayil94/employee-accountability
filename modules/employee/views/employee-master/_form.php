@@ -23,7 +23,15 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'last_name')->textInput(['rows' => 6]) ?>
 
     <?= $form->field($model, 'age')->textInput() ?>
-
+    
+    
+     <?= $form->field($model, 'email')->textInput() ?>
+    
+   
+    <?= $form->field($model, 'contact')->textInput() ?>
+    
+<?= $form->field($model, 'education')->dropDownList(['BCA' => 'BCA', 'MCA' => 'MCA', 'B.Sc Computer Science' => 'B.Sc Computer Science','M.Sc Computer Science' => 'M.Sc Computer Science',], ['prompt' => 'Select Qualification']) ?>
+    
     <?= $form->field($model, 'gender')->radioList(['Male' => 'Male', 'Female' => 'Female', 'Others' => 'Others',], ['prompt' => '']) ?>
 
     <?=

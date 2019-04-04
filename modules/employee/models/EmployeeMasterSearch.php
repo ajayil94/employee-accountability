@@ -17,7 +17,7 @@ class EmployeeMasterSearch extends EmployeeMaster {
     public function rules() {
         return [
             [['id', 'age'], 'integer'],
-            [['first_name', 'middle_name', 'last_name', 'gender', 'designation'], 'safe'],
+            [['first_name', 'middle_name', 'last_name', 'gender', 'designation','contact','education','email'], 'safe'],
         ];
     }
 
@@ -63,7 +63,10 @@ class EmployeeMasterSearch extends EmployeeMaster {
                 ->andFilterWhere(['like', 'middle_name', $this->middle_name])
                 ->andFilterWhere(['like', 'last_name', $this->last_name])
                 ->andFilterWhere(['like', 'gender', $this->gender])
-                ->andFilterWhere(['like', 'designation', $this->designation]);
+                ->andFilterWhere(['like', 'designation', $this->designation])
+                ->andFilterWhere(['like', 'contact', $this->contact]);
+//                ->andFilterWhere(['like', 'email', $this->email])
+//                ->andFilterWhere(['like', 'education', $this->education]);
 
         return $dataProvider;
     }
