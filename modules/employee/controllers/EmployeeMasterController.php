@@ -94,7 +94,9 @@ class EmployeeMasterController extends Controller {
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id) {
+        
 $model = new EmployeeMaster();
+
         $model = $this->findModel($id);
 
         $current_image = $model->profile_image;
@@ -112,10 +114,12 @@ $model = new EmployeeMaster();
                 $model->profile_image->saveAs('uploads/emp/' . $project . '.' . $model->profile_image->extension);
 
                 $model->profile_image = 'uploads/emp/' . $project . '.' . $model->profile_image->extension;
-            } else
+            } 
+            else
                 $model->profile_image = $current_image;
 
             $model->save();
+            
 
             Yii::$app->getSession()->setFlash('success', 'Data updated Successfully!');
 

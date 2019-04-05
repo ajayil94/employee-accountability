@@ -1,144 +1,82 @@
 
 
-    <?php
+<?php
 
+//use Yii;
 use yii\helpers\Html;
 //use yii\widgets\DetailView;
 use app\models\Employee;
 use yii\bootstrap\Tabs;
 
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Employee */
-echo Html::a('<span class="glyphicon glyphicon-pencil"></span> Update', ['update', 'id' => $model->id], ['class' => "btn btn-outline-success"]);
+
+echo Html::a('<span class="glyphicon glyphicon-pencil"></span> Update', ['update', 'id' => $model->id], ['class' => "btn btn-success btn-sm"]);
 
 echo Html::a('<span class="glyphicon glyphicon-trash"></span> Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-Success',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]);
-echo Html::a('<span class="glyphicon glyphicon-list"></span> List', ['index'], ['class' => 'btn btn-outline-primary']);
+    'class' => 'btn btn-danger btn-sm',
+    'data' => [
+        'confirm' => 'Are you sure you want to delete this item?',
+        'method' => 'post',
+    ],
+]);
+//echo Html::a('<span class="glyphicon glyphicon-list"></span> List', ['index'], ['class' => 'btn btn-info btn-sm']);
 $this->title = $model->first_name;
 $this->params['breadcrumbs'][] = ['label' => 'Employees', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<p>
+<!--<p>-->
 
 
 <?php $this->beginBlock('personal'); ?>
-
-
-
-
-<div class="divTable" id="demo">
-    
-<div class="divTableRow">
-<div class="col-sm-8">
-<b><?= (Html::img('/web/uploads/emp/'.$model->profile_image, ['width'=>'100', 'height'=>'100'])) ?>&nbsp;&nbsp;&nbsp;</b>
-
-
-
-</div>
-</div>
 <br>
 <div class="row">
-<div class="col-sm-3">
-    <b>Employee :</b>
+    <div class="col-sm-8">
+        <b><?= (Html::img('web/uploads/' . $model->profile_image, ['width' => '100', 'height' => '100'])) ?>&nbsp;&nbsp;&nbsp;</b>
 
-</div>
-<div class="col-sm-3">
-<b>
-   	<?php
 
-		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
-
-		echo Html::encode($emp->first_name)." ".Html::encode($emp->middle_name)." ".Html::encode($emp->last_name);
-		?>
-	</b>
-</div>
+    </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr bgcolor='#DBDBDB'>
+                    <th>Employee Name</th>
+                    <th>Gender</th>
+                    <th>Designation</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
 
-<br>
-
-<div class="row">
-<div class="col-sm-3">
-    
-    <b>gender :</b>
-</div>
-<div class="col-sm-3">
-<b>
-   	<?php
-
-		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
-
-		echo $emp->gender;
-                
-		?>
-	</b>
-</div>
-</div>
+            <tbody>
 
 
-<br>
+                <?php
+                $emp = \app\modules\employee\models\EmployeeMaster::findOne($model->id);
 
-<div class="row">
-<div class="col-sm-3">
-<b>	Designation :</b>
-</div>
-<div class="col-sm-3">
-<b>
-   	<?php
-		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
 
-		echo $emp->designation;
-                
-		?>
-	</b>
-</div>
-</div>
-
-<br>
-
-<div class="row">
-<div class="col-sm-3">
-<b>	Education :</b>
-</div>
-<div class="col-sm-3">
-<b>
-   	<?php
-		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
-
-		echo $emp->education;
-                
-		?>
-	</b>
-</div>
-</div>
-
-<br>
-
-<div class="row">
-<div class="col-sm-3">
-<b>	Age :</b>
-</div>
-<div class="col-sm-3">
-<b>
-   	<?php
-
-		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
-
-		echo $emp->age;
-		?>
-	</b>
-</div>
-</div>
+                echo "<tr>";
 
 
 
 
+                echo "<td>" . Html::encode($emp->first_name) . " " . Html::encode($emp->middle_name) . " " . Html::encode($emp->last_name) . "</td>";
+
+                echo "<td>" . Html::encode($emp->gender) . "</td>";
+                echo "<td>" . Html::encode($emp->designation) . "</td>";
+                echo "<td>" . Html::encode($emp->age) . "</td>";
+                echo "</tr>";
+
+
+
+//}
+                ?>
+
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
@@ -147,22 +85,26 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php $this->beginBlock('profile'); ?>
 <br>
-<div class="row">
-<div class="col-sm-3">
-<b>	Profile Image</b>
-</div>
-<div class="col-sm-3">
-<b>
-   	<?php
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr bgcolor='#DBDBDB'>
+                    <th>Profile Image</th>
 
-		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
 
-		echo $model->profile_image;
-		?>
-	</b>
-</div>
-</div>
+                </tr>
+            </thead>
 
+            <tbody>
+            <td>
+
+                <?php echo ('<img src =' . 'http://localhost/employee-accountability/web/' . $model->profile_image . ' height="100" width="150"' . '>'); ?>
+            </td>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 
 
@@ -170,38 +112,36 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php $this->beginBlock('contact'); ?>
 <br>
-<div class="row">
-    
-<div class="col-sm-3">
-<b>	Mobile </b>
-</div>
-<div class="col-sm-3">
-<b>
-   	<?php
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr bgcolor='#DBDBDB'>
+                    <th>Mobile</th>
+                    <th>Email</th>
 
-		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
+                </tr>
+            </thead>
 
-		echo $emp->contact;
-		?>
-	</b>
-</div>
-</div>
+            <tbody>
 
-<br>
-<div class="row">
-<div class="col-sm-3">
-<b>	Email</b>
-</div>
-<div class="col-sm-3">
-<b>
-   	<?php
 
-		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
+                <?php
+                $emp = \app\modules\employee\models\EmployeeMaster::findOne($model->id);
 
-		echo $emp->email;
-		?>
-	</b>
-</div>
+
+                echo "<tr>";
+
+
+                echo "<td>" . Html::encode($emp->contact) . "</td>";
+                echo "<td>" . Html::encode($emp->email) . "</td>";
+
+                echo "</tr>";
+                ?>
+
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
@@ -209,37 +149,36 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php $this->beginBlock('other'); ?>
 <br>
-<div class="row">
-<div class="col-sm-3">
-<b>	Created At</b>
-</div>
-<div class="col-sm-3">
-<b>
-   	<?php
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr bgcolor='#DBDBDB'>
+                    <th>Create At</th>
+                    <th>Modified At</th>
 
-		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
+                </tr>
+            </thead>
 
-		echo $emp->created_at;
-		?>
-	</b>
-</div>
-</div>
+            <tbody>
 
-<br>
-<div class="row">
-<div class="col-sm-3">
-<b>	Modified At</b>
-</div>
-<div class="col-sm-3">
-<b>
-   	<?php
 
-		$emp = app\modules\employee\models\EmployeeMaster::findOne($model->id);
+<?php
+$emp = \app\modules\employee\models\EmployeeMaster::findOne($model->id);
 
-		echo $emp->modified_at;
-		?>
-	</b>
-</div>
+
+echo "<tr>";
+
+
+echo "<td>" . Html::encode($emp->created_at) . "</td>";
+echo "<td>" . Html::encode($emp->modified_at) . "</td>";
+
+echo "</tr>";
+?>
+
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
@@ -249,38 +188,32 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
-<?php echo \yii\bootstrap\Tabs::Widget([
-        'items' => [
-            [
-                'label' => 'Personal',
-                'content' => $this->blocks['personal'],
-                'active' => true,
-            ],
-            [
-                'label' => 'Profile',
-                'content' => $this->blocks['profile'],
-//                'active' => true,
-            ],
-	[
-                'label' => 'Contact',
-                'content' => $this->blocks['contact'],
-//                'active' => true,
-            ],
-            
-	[
-                'label' => 'Other',
-                'content' => $this->blocks['other'],
-//                'active' => true,
-            ],
-	
-            
-            
-            
+<?php
+echo \yii\bootstrap\Tabs::Widget([
+    'items' => [
+        [
+            'label' => 'Personal',
+            'content' => $this->blocks['personal'],
+            'active' => true,
         ],
-    ]); 
-	
-	
-	?>
+        [
+            'label' => 'Profile',
+            'content' => $this->blocks['profile'],
+//                'active' => true,
+        ],
+        [
+            'label' => 'Contact',
+            'content' => $this->blocks['contact'],
+//                'active' => true,
+        ],
+        [
+            'label' => 'Other',
+            'content' => $this->blocks['other'],
+//                'active' => true,
+        ],
+    ],
+]);
+?>
     
-    
+
 
