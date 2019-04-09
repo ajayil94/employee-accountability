@@ -35,7 +35,7 @@ class EmployeeMaster extends \yii\db\ActiveRecord {
             [['first_name', 'last_name', 'age', 'gender', 'designation','contact','education','email'], 'required'],
             [['profile_image'],'file','extensions'=>'jpeg,jpg,png,gif'],
             [['first_name', 'middle_name', 'last_name', 'gender', 'designation','contact','education','email'], 'string'],
-            [['age'], 'integer'],
+            [['age'], 'integer',],
         ];
     }
 
@@ -52,6 +52,8 @@ class EmployeeMaster extends \yii\db\ActiveRecord {
             'gender' => 'Gender',
             'designation' => 'Designation',
             'email'=>'Email',
+            'contact' => 'Contact',
+            'education' => 'Education',
             'profile_image'=>'Profile Image'
             
         ];

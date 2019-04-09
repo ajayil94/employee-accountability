@@ -14,7 +14,7 @@ use yii\widgets\ActiveForm;
 
 <div class="employee-master-form">
 
-    <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']]); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'first_name')->textInput(['rows' => 6]) ?>
 
@@ -23,15 +23,13 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'last_name')->textInput(['rows' => 6]) ?>
 
     <?= $form->field($model, 'age')->textInput() ?>
-    
-    
-     <?= $form->field($model, 'email')->textInput() ?>
-    
-   
+
+    <?= $form->field($model, 'email')->textInput() ?>
+
     <?= $form->field($model, 'contact')->textInput() ?>
-    
-<?= $form->field($model, 'education')->dropDownList(['BCA' => 'BCA', 'MCA' => 'MCA', 'B.Sc Computer Science' => 'B.Sc Computer Science','M.Sc Computer Science' => 'M.Sc Computer Science',], ['prompt' => 'Select Qualification']) ?>
-    
+
+    <?= $form->field($model, 'education')->dropDownList(['BCA' => 'BCA', 'MCA' => 'MCA', 'B.Sc Computer Science' => 'B.Sc Computer Science', 'M.Sc Computer Science' => 'M.Sc Computer Science',], ['prompt' => 'Select Qualification']) ?>
+
     <?= $form->field($model, 'gender')->radioList(['Male' => 'Male', 'Female' => 'Female', 'Others' => 'Others',], ['prompt' => '']) ?>
 
     <?=
@@ -39,7 +37,7 @@ use yii\widgets\ActiveForm;
             ArrayHelper::map(Designation::find()->all(), 'designation', 'designation'), ['prompt' => 'Select Designation',]);
     ?>
 
-    
+
      <?= $form->field($model, 'profile_image')->fileInput() ?>
     
     <div class="form-group">
