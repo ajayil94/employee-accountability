@@ -25,7 +25,8 @@
     "costa-rico/yii2-images": "dev-master",
     "2amigos/yii2-file-input-widget":"~1.0",
     "zxbodya/yii2-gallery-manager": "*@dev",
-    "ramosisw/yii2-material-dashboard": "dev-master"
+    "ramosisw/yii2-material-dashboard": "dev-master",
+        "dektrium/yii2-user": "^0.9.0@dev"
 
 },
     "require-dev": {
