@@ -25,8 +25,6 @@ return [
             'class' => 'app\modules\mapping\Mapping',
         ],
     
-    'user' => [
-            'class' => 'app\modules\user\User',
-        ],
+    
     
 ];

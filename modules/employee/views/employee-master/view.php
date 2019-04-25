@@ -25,30 +25,17 @@ $this->title = $model->first_name;
 $this->params['breadcrumbs'][] = ['label' => 'Employees', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<!--<p>-->
-
-
-
 
 
 <br>
-<!--<style>
-    
-    body {
-  background-color: lightgray;
-}
-</style>-->
 <div class="row">
 
     <div class="col-sm-8">
         <b><?= (Html::img('web/uploads/' . $model->profile_image, ['width' => '100', 'height' => '100'])) ?>&nbsp;&nbsp;&nbsp;</b>
-
-
     </div>
 </div>
 
 <div class="container">
-    
     <div class="row">
         <table class="table table-bordered">
             <thead>
@@ -59,44 +46,25 @@ $this->params['breadcrumbs'][] = $this->title;
                     <th>Age</th>
                 </tr>
             </thead>
-
             <tbody>
-
-
                 <?php
                 $emp = \app\modules\employee\models\EmployeeMaster::findOne($model->id);
-
-
                 echo "<tr>";
-
-
-
-
                 echo "<td>" . Html::encode($emp->first_name) . " " . Html::encode($emp->middle_name) . " " . Html::encode($emp->last_name) . "</td>";
-
                 echo "<td>" . Html::encode($emp->gender) . "</td>";
                 echo "<td>" . Html::encode($emp->designation) . "</td>";
                 echo "<td>" . Html::encode($emp->age) . "</td>";
                 echo "</tr>";
-
-
-
-//}
                 ?>
-
             </tbody>
         </table>
     </div>
-    
 </div>
-
 <br>
 
 <div class="container">
     <div class="row">
-
         <table class="table table-bordered" style="width:10%">
-            
             <thead>
                 <tr bgcolor='#DBDBDB'>
                     <th>Profile Image</th>
@@ -104,21 +72,14 @@ $this->params['breadcrumbs'][] = $this->title;
             </thead>
             <tbody >
                 <tr>
-            <td >
-                
-
-                <?php echo ('<img src =' . 'http://localhost/employee-accountability/web/' . $model->profile_image . ' height="100" width="150"' . '>'); ?>
-            </td>
-            </tr>
+                    <td>
+                        <?php echo ('<img src =' . 'http://localhost/employee-accountability/web/' . $model->profile_image . ' height="100" width="150"' . '>'); ?>
+                    </td>
+                </tr>
             </tbody>
         </table>
-
     </div>
 </div>
-
-
-
-
 
 <br>
 <div class="container">
@@ -128,33 +89,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 <tr bgcolor='#DBDBDB'>
                     <th>Mobile</th>
                     <th>Email</th>
-
                 </tr>
             </thead>
-
             <tbody>
-
-
                 <?php
                 $emp = \app\modules\employee\models\EmployeeMaster::findOne($model->id);
-
-
                 echo "<tr>";
-
-
                 echo "<td>" . Html::encode($emp->contact) . "</td>";
                 echo "<td>" . Html::encode($emp->email) . "</td>";
-
                 echo "</tr>";
                 ?>
-
             </tbody>
         </table>
     </div>
 </div>
-
-
-
 
 <br>
 <div class="container">
@@ -164,30 +112,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 <tr bgcolor='#DBDBDB'>
                     <th>Create At</th>
                     <th>Modified At</th>
-
                 </tr>
             </thead>
-
             <tbody>
-
-
                 <?php
                 $emp = \app\modules\employee\models\EmployeeMaster::findOne($model->id);
-
-
                 echo "<tr>";
-
-
                 echo "<td>" . Html::encode($emp->created_at) . "</td>";
                 echo "<td>" . Html::encode($emp->modified_at) . "</td>";
-
                 echo "</tr>";
                 ?>
-
             </tbody>
         </table>
     </div>
-   
 </div>
 
 
