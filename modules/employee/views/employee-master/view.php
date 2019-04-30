@@ -25,7 +25,7 @@ $this->title = $model->first_name;
 $this->params['breadcrumbs'][] = ['label' => 'Employees', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
+<link rel="stylesheet" type="text/css" href="emp.css">
 
 <br>
 <div class="row">
